@@ -31,7 +31,7 @@ https://api.map.baidu.com/location/ip?qt=loc&coor=bd09ll&ak=Er8iGG4UMfSd3Ckuc6w8
 
 //签到
 https://e.xinrenxinshi.com/attendance/ajax-sign
-longitude:116.472359
-latitude:39.92942
+longitude:22.396438205993736
+latitude:114.10950785348682
 
 
