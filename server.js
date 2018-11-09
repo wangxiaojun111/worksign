@@ -1,6 +1,7 @@
 var express = require('express')
 var app = express()
 var proxy = require('http-proxy-middleware');
+var port = process.env.PORT || 3000;
 
 //静态资源
 app.use(express.static(__dirname + '/public'))
@@ -31,5 +32,5 @@ app.use('/bapi', proxy({
     }
 }));
 
-
-app.listen(8007)
+// app.set('port',80)
+app.listen(port)
