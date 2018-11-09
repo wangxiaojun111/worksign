@@ -13,7 +13,7 @@
         <p id='defaultCity'></p>
     </div>
     <p>
-        <input id='address' value="博彦科技大厦" onkeydown="executeSearch(this)">
+        <input id='address' value="base office" onkeydown="executeSearch(this)">
         <input id='btnSearch' type="button" value='搜索' disabled>
     </p>
 
@@ -58,6 +58,7 @@
 
 
     function IPCallBack(data) {
+        console.log('data',data)
         window.cityData = data
         return data
     }
@@ -66,7 +67,7 @@
     function locate2() {
         return new Promise((resolve, reject) => {
             let scriptEl = document.createElement('script')
-            scriptEl.src = 'http://whois.pconline.com.cn/ipJson.jsp?callback=testJson'
+            scriptEl.src = 'http://whois.pconline.com.cn/ipJson.jsp'
             document.body.appendChild(scriptEl)
             scriptEl.onload = function () {
                 resolve(window.cityData)
