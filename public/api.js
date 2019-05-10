@@ -82,14 +82,13 @@ resultDemo = {
     message: "请先登录",
     status: false
 }
-
 //签到
 // app.sdsds.js 4428
 // "timestamp=1520250455999&accuracy=1999&latitude=22.396438205993736&longitude=114.10950785348682"
 async function sign(longitude, latitude, crsfToken) {
 
     //key = "[!]+K.&`d"
-    //CryptoJS.algo.HMAC.   
+    //CryptoJS.algo.HMAC.
 
     const timestamp = Date.now(),
         p1 = [{
@@ -97,9 +96,11 @@ async function sign(longitude, latitude, crsfToken) {
         }, {
             latitude: latitude
         }, {
-            accuracy: 1999
+            accuracy: 0
         }, {
             timestamp: timestamp
+        }, {
+            macAddr: ""
         }],
         p2 = {
             a: "c0$=[Z#4s)",
@@ -116,15 +117,16 @@ async function sign(longitude, latitude, crsfToken) {
             'Origin': 'https://e.xinrenxinshi.com',
             'Referer': 'https://e.xinrenxinshi.com/index',
             'X-CSRF-TOKEN': crsfToken,
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json;charset=UTF-8'
         },
         credentials: 'include',
         body: JSON.stringify({
             longitude,
             latitude,
             signature,
-            accuracy: 1999,
+            accuracy: 0,
+            macAddr: "",
             timestamp: timestamp
         })
     }).then(res => res.json())
